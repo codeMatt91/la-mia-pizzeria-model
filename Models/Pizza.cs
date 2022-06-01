@@ -8,8 +8,9 @@
         public double Price { get; set; }
         public string Photo { get; set; }
 
-        public Pizza(string Nome, string Descizione, double Prezzo, string Foto)
-        { 
+        public Pizza(int id,string Nome, string Descizione, double Prezzo, string Foto)
+        {
+            this.Id = id;
             this.Name = Nome;
             this.Description = Descizione;
             this.Price = Prezzo;
