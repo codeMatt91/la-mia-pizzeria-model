@@ -5,6 +5,7 @@ namespace la_mia_pizzeria_static.Controllers
 {
     public class PizzaController : Controller
     {
+        public static listaPizze pizze;
         public IActionResult Index()
         {
             Pizza Margherita = new Pizza("Margherita","Ingredienti: Mozzarella, Pomodoro e Basilico",6.50,"img/margherita.jpg");
@@ -14,15 +15,22 @@ namespace la_mia_pizzeria_static.Controllers
             Pizza Salame = new Pizza("Salame", "Ingredienti: Mozzarella, pomodoro e Salame piccante", 8.50, "img/salame.jpg");
             Pizza Funghi = new Pizza("Funghi", "Ingredienti: Mozzarella, pomodoro e Funghi", 7.00, "img/funghi.jpg");
 
-            listaPizze pizze = new listaPizze();
-            pizze.pizze.Add(Margherita);
-            pizze.pizze.Add(Boscaiola);
-            pizze.pizze.Add(Bufala);
-            pizze.pizze.Add(Formaggi);
-            pizze.pizze.Add(Salame);
-            pizze.pizze.Add(Funghi);
+            pizze = new();
+            pizze.pizzas.Add(Margherita);
+            pizze.pizzas.Add(Boscaiola);
+            pizze.pizzas.Add(Bufala);
+            pizze.pizzas.Add(Formaggi);
+            pizze.pizzas.Add(Salame);
+            pizze.pizzas.Add(Funghi);
 
             return View(pizze);
+        }
+
+
+        public IActionResult Show(int id)
+        { 
+
+            return View("Show", pizze.pizzas[id]);
         }
     }
 }

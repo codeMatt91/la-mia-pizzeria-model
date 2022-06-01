@@ -54,13 +54,13 @@
 					</thead>
 					<tbody>
 						@{
-							foreach (var item in Model.pizze)
+							foreach (var item in Model.pizzas)
 							{
 								<tr>
-									<td><h4>@item.Name</h4></td>
+									<td><h4><a href="@Url.Action("Show", "Pizza", new {@item.Id})">@item.Name</a></h4></td>
 									<td>@item.Description</td>
 									<td>@item.Price $</td>
-									<td><img src="@item.Photo"></img></td>
+									<td><img src="@item.Photo"></td>
 								</tr>
 							}
 						}
